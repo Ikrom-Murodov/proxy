@@ -1,7 +1,7 @@
 {
   "name": "proxy-handler-for-reactivity",
-  "version": "0.0.0",
-  "description": "Proxy for reactive programming",
+  "version": "1.0.0",
+  "description": "Proxy for reactive programming.",
   "main": "src/ts/index.js",
   "scripts": {
     "dev": "node -r esm webpack/dev.js",
@@ -15,7 +15,7 @@
     "email": "ikrommurodov2001@gmail.com",
     "url": "https://github.com/Ikrom-Murodov"
   },
-  "homepage": "https://github.com/Ikrom-Murodov",
+  "homepage": "https://github.com/Ikrom-Murodov/proxy",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
