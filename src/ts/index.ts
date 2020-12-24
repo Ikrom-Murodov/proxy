@@ -1,5 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-types */
 
+interface IHooks<T> {
+  getHook?(target: T, key: string | number | symbol): void;
+  setHook?(target: T, key: string | number | symbol, value: any): void;
+  deleteProperty?(target: T, key: string | number | symbol): void;
+  has?(target: T, key: string | number | symbol): void;
+  ownKeys?(target: T): void;
+}
+
 function proxyHandler<T extends object = object>(): ProxyHandler<T> {
   return {
     get(target, key): unknown {
