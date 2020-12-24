@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
 
 interface IHooks<T> {
@@ -8,6 +9,12 @@ interface IHooks<T> {
   ownKeys?(target: T): void;
 }
 
+/**
+ * The result of this function will be a proxy handler.
+ * @param { IHooks } hooks - An object containing special functions that
+ *   will be called when certain hooks are triggered.
+ * @returns { ProxyHandler } Returns proxy handler.
+ */
 function proxyHandler<T extends object = object>(
   hooks?: IHooks<T>,
 ): ProxyHandler<T> {
@@ -45,6 +52,14 @@ function proxyHandler<T extends object = object>(
   };
 }
 
+/**
+ * This function creates a proxy and also adds a tracking handler for the object,
+ *   you can subscribe to an action using hooks.
+ * @param {Object} target - The target to add the proxy to.
+ * @param { IHooks } hooks - An object containing special functions that
+ *   will be called when certain hooks are triggered.
+ * @returns An object that is wrapped in a proxy.
+ */
 function reactive<T extends object = object>(target: T, hooks?: IHooks<T>): T {
   return new Proxy(target, proxyHandler(hooks));
 }
