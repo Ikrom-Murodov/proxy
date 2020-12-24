@@ -30,3 +30,7 @@ function proxyHandler<T extends object = object>(): ProxyHandler<T> {
     },
   };
 }
+
+function reactive<T extends object = object>(target: T): T {
+  return new Proxy(target, proxyHandler());
+}
